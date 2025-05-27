@@ -39,7 +39,7 @@
             
             // Display the result
             document.getElementById('result').innerHTML = `
-                <strong>Short URL:</strong> <a onclick="redirect()" target="_blank">${shortUrl}</a><br>
+                <strong>Short URL:</strong> <span onclick="redirect()" target="_blank">${shortUrl}</span><br>
                 <strong>Original URL:</strong> ${longUrl}
             `;
         }

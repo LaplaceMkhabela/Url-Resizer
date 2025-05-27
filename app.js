@@ -39,13 +39,13 @@
             
             // Display the result
             document.getElementById('result').innerHTML = `
-                <strong>Short URL:</strong> <a href="${urlDatabase[shortUrl]}" target="_blank">${shortUrl}</a><br>
+                <strong>Short URL:</strong> <a onclick="redirect()" target="_blank">${shortUrl}</a><br>
                 <strong>Original URL:</strong> ${longUrl}
             `;
         }
         
         // Handle redirection when a short URL is accessed
-        window.onload = function() {
+        const redirect = function() {
             const path = window.location.pathname.substring(1); // Remove leading slash
             if (path && urlDatabase[path]) {
                 window.location.href = urlDatabase[path];

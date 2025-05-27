@@ -1,5 +1,6 @@
  // Counter to generate unique IDs
-        let urlCounter = 1000; // Start from 1000 to get slightly longer codes
+        let urlCounter = 1000; // Start from 1000 to get slightly longer codesba
+        let baseUrl = "https://short.mk"
         
         // Base62 characters
         const base62Chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -34,7 +35,7 @@
             urlDatabase[shortCode] = longUrl;
             
             // Create the shortened URL
-            const shortUrl = `${window.location.origin}/${shortCode}`;
+            const shortUrl = `${baseUrl}/${shortCode}`;
             
             // Display the result
             document.getElementById('result').innerHTML = `

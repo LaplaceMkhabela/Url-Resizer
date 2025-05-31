@@ -3,52 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Url Resizer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            word-break: break-all;
-        }
-        .follow {
-            cursor: pointer;
-            color: blue;
-        }
-
-        .follow:hover {
-            color: red;
-        }
-    </style>
+    <title>URL Resizer</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Basic URL Shortener</h1>
-        <input type="text" id="longUrl" placeholder="Enter your long URL">
-        <button onclick="shortenUrl()">Shorten URL</button>
-        <div id="result"></div>
+        <header>
+            <span><canvas id="cubeCanvas" width="100" height="100"></canvas></span>
+            <h1>URL Resizer</h1>
+            <p>
+                Transform your log URLs into short, sharable links in seconds <br>
+                Manage all your links with a simple click
+            </p>
+        </header>
+        <main>
+            <div class="input-area">
+                <div class="input-head">
+                    <p>Shorten Your URL</p>
+                </div>
+                <div class="input-controls">
+                    <input type="text" name="" id="longUrl" placeholder="https://example.com/very-long-url that-needs shortening">
+                    <span>
+                        <button onclick="resize()" class="button-64" role="button"><span class="text">Shorten</span></button>
+                    </span>
+                </div>
+            </div>
+        </main>
+        <section class="results">
+            <h2>Your Shortended URLS</h2>
+        </section>
     </div>
-    <script src="app.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/cube.js"></script>
 </body>
 </html>

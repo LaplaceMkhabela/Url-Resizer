@@ -1,33 +1,33 @@
-//copy
+
 function copy(text) {
   navigator.clipboard.writeText(text);
   alert("Copied");
 }
 
-//remove
+
 function remove(id) {
   document.getElementById(id).remove();
 }
 
 function setup() {
-  //set count
+
   if (!localStorage.getItem("count")) {
     localStorage.setItem("count", 1000);
   }
 }
 
-// Counter to generate unique IDs
-let urlCounter = localStorage.getItem("count"); // Start from 1000 to get slightly longer codes
+
+let urlCounter = localStorage.getItem("count"); 
 let prefix = "https://short.mk/";
 
-// Base62 characters
+
 const base62Chars =
   "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 const urlDatabase = {};
 setup();
 
-// Convert a number to Base62
+
 function toBase62(num) {
   if (num === 0) return "0";
   let result = "";
@@ -38,7 +38,7 @@ function toBase62(num) {
   return result;
 }
 
-// Main function to shorten URL
+
 function resize() {
   const longUrl = document.getElementById("longUrl").value.trim();
 
@@ -47,18 +47,14 @@ function resize() {
     return;
   }
 
-  // Generate a short code
   const shortCode = toBase62(urlCounter++);
   localStorage.setItem("count",urlCounter);
 
-  // Store in our "database"
   urlDatabase[shortCode] = longUrl;
   localStorage.setItem(shortCode, longUrl);
 
-  // Create the shortened URL
   const shortUrl = `${prefix}/${shortCode}`;
 
-  // Display the result
   document.getElementsByClassName("results")[0].innerHTML += `
         <div id="${shortCode}" class="card">
                 <div class="card-head">
